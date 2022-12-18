@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        enabled: true
+        server-addr: localhost:8848
+        prefix: austin
+  application:
+    name: austin

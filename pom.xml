@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.6</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.Justin</groupId>
+    <artifactId>justin</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>justin</name>
+    <description>justin</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>19</java.version>
+        <revision>0.0.1-2023.1.1-SNAPSHOT</revision>
+        <spring.cloud.version>2021.0.3</spring.cloud.version>
+        <spring-cloud-alibaba.version>2021.0.3</spring-cloud-alibaba.version>
+        <spring.boot.version>2.7.6</spring.boot.version>
+        <spring.framework.version>6.0.4</spring.framework.version>
+        <fastjson>1.2.76</fastjson>
+        <spring-data-redis>3.0.0</spring-data-redis>
+        <spring.boot.mybatisplus>3.5.2</spring.boot.mybatisplus>
+        <kafka>3.0.0</kafka>
+        <hutool>5.8.10</hutool>
+        <lombook>1.18.24</lombook>
+    </properties>
+
+    <!--开发者-->
+    <developers>
+    <developer>
+        <id>Alliance</id>
+        <name>ZhenTing Zhang</name>
+        <email>2426446427@qq.com</email>
+        <organization>TCU</organization>
+        <url>https://github.com/AllianceTing</url>
+    </developer>
+    </developers>
+    <!--scm-->
+    <scm>
+        <url>https://github.com/AllianceTing/justin</url>
+        <connection>scm:git:git@github.com:AllianceTing/justin.git</connection>
+        <developerConnection>scm:git:git@github.com:AllianceTing/justin.git</developerConnection>
+    </scm>
+
+    <modules>
+        <module>kafka</module>
+        <module>RPC</module>
+        <module>ServiceRegistryCenter</module>
+        <module>Server</module>
+    </modules>
+    <!-- 依赖管理-->
+    <dependencyManagement>
+<dependencies>
+    <!--springboot 依赖-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+    <!-- Spring Framework Dependencies -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring</artifactId>
+        <version>5.3.24</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+    <!--spring-cloud-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2021.1</version>
+        <scope>import</scope>
+        <type>pom</type>
+    </dependency>
+    <!--fastjson-->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson}</version>
+    </dependency>
+    <!--spring-data-redis-->
+<!--    <dependency>-->
+<!--        <groupId>org.springframework.data</groupId>-->
+<!--        <artifactId>spring-data-redis</artifactId>-->
+<!--        <version>3.0.0</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash;Hutool工具类&ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>cn.hutool</groupId>-->
+<!--        <artifactId>hutool-all</artifactId>-->
+<!--        <version>5.8.10</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash;mybatisplus&ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>com.baomidou</groupId>-->
+<!--        <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--        <version>3.5.2</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash;kafka&ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>org.springframework.kafka</groupId>-->
+<!--        <artifactId>spring-kafka</artifactId>-->
+<!--        <version>${kafka}</version>-->
+<!--    </dependency>-->
+<!--lombook-->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombook}</version>
+    </dependency>
+</dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>19</source>
+                    <target>19</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun Repository</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>Nexus tencentyun</id>
+            <name>Nexus tencentyun</name>
+            <url>https://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>
